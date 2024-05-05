@@ -17,9 +17,9 @@ jobs:
         environment: Prod
         steps:
             - name: Download Artifact 
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v2
               with:
-                workflow: pack-contoso-university-core-demo.yml
+                workflow: pack-solution.yml
                 name: packed-solution
             - name: Install Power Platform Tool
               uses: microsoft/powerplatform-actions/actions-install@v1.2.0
