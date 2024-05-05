@@ -1,0 +1,30 @@
+name: Pack Contoso_University_Core
+# Pack solution from Repo
+#  pack it and prepare -- commit and push a git branch with the changes
+
+on:
+  push:
+    paths:
+      - contents/**
+  workflow_dispatch:
+
+jobs: 
+  Build:  
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4.1.1
+      - name: Install Power Platform actions
+        uses: microsoft/powerplatform-actions/actions-install@v1.2.0
+      - name: Pack Contoso_University_core
+        uses: microsoft/powerplatform-actions/pack-solution@v1.2.0
+        with:
+          solution-file: out/contoso_university_core.zip
+          solution-folder: contents
+          solution-type: Both
+      - name: Upload Build Artifact aka packed sol to artif foldr
+        uses: actions/upload-artifact@v2
+        with:
+          name: packed-solution
+          path: out/
+
