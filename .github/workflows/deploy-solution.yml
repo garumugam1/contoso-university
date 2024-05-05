@@ -21,6 +21,7 @@ jobs:
               with:
                 workflow: pack-solution.yml
                 name: packed-solution
+                path: out/
             - name: Install Power Platform Tool
               uses: microsoft/powerplatform-actions/actions-install@v1.2.0
             - name: Import Contoso_university_Core
