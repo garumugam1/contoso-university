@@ -20,6 +20,7 @@ jobs:
               uses: actions/download-artifact@v4
               with:
                 workflow: Pack Contoso_University_Core
+                path: out/release/
                 #name: packed-solution                
             - name: Install Power Platform Tool
               uses: microsoft/powerplatform-actions/actions-install@v1.2.0
@@ -30,4 +31,4 @@ jobs:
                 app-id: ${{ secrets.CLIENTID }}
                 client-secret: ${{ secrets.SECRET }}
                 tenant-id: ${{ secrets.TENANTID }}
-                solution-file: packed-solution/contoso_university_core_managed.zip
+                solution-file: contoso_university_core_managed.zip
