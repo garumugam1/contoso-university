@@ -17,15 +17,22 @@ jobs:
         environment: Prod
         steps:
             - name: Download Artifact 
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v3
               with:
-                workflow: deploy-solution.yml
-                github-token: ${{ secrets.GH_PAT }} 
+                #workflow: deploy-solution.yml
+                name: packed-solution
+                github-token: ${{ secrets.GITHUB_TOKEN }} 
                 #run-id: ${{ github.event.workflow_run. 
                 #path: out/release/
                 #name: packed-solution                
             - name: Install Power Platform Tool
               uses: microsoft/powerplatform-actions/actions-install@v1.2.0
+           # - name: Pack Contoso_University_core
+             # uses: microsoft/powerplatform-actions/pack-solution@v1.2.0
+             # with:
+             #   solution-file: out/contoso_university_core.zip
+             #   solution-folder: contents
+              #  solution-type: Both
             - name: Import Contoso_university_Core
               uses: microsoft/powerplatform-actions/import-solution@v1.2.0
               with:
