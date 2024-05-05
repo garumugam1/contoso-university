@@ -31,4 +31,4 @@ jobs:
                 app-id: ${{ secrets.CLIENTID }}
                 client-secret: ${{ secrets.SECRET }}
                 tenant-id: ${{ secrets.TENANTID }}
-                solution-file: contoso_university_core_managed.zip
+                solution-file: out/release/contoso_university_core_managed.zip
