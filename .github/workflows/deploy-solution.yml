@@ -4,7 +4,7 @@ name: Deploy Contoso_university_core Demo
 # trigger on workflow based on Pack Contoso_University_Core Demo workflow completion
 on:
     workflow_run:
-        workflows: ["Pack Contoso_University_Core Demo"]
+        workflows: ["Pack Contoso_University_Core"]
         branches: [main]
         types:
             - completed
