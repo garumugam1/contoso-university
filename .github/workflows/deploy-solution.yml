@@ -22,6 +22,7 @@ jobs:
                 #workflow: deploy-solution.yml
                 name: packed-solution
                 github-token: ${{ secrets.GITHUB_TOKEN }} 
+                run_id: context.payload.workflow_run.id
                 #run-id: ${{ github.event.workflow_run. 
                 #path: out/release/
                 #name: packed-solution                
