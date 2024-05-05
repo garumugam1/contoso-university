@@ -19,7 +19,7 @@ jobs:
             - name: Download Artifact 
               uses: actions/download-artifact@v2
               with:
-                workflow: pack-solution.yml
+                workflow: Pack Contoso_University_Core
                 name: packed-solution
                 path: out/
             - name: Install Power Platform Tool
