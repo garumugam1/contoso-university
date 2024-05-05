@@ -17,9 +17,11 @@ jobs:
         environment: Prod
         steps:
             - name: Download Artifact 
-              uses: actions/download-artifact@v2
+              uses: actions/download-artifact@v4
               with:
                 workflow: deploy-solution.yml
+                github-token: ${{ secrets.GH_PAT }} 
+                #run-id: ${{ github.event.workflow_run. 
                 #path: out/release/
                 #name: packed-solution                
             - name: Install Power Platform Tool
