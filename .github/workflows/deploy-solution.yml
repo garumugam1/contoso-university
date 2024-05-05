@@ -27,7 +27,7 @@ jobs:
             - name: Pack Contoso_University_core
               uses: microsoft/powerplatform-actions/pack-solution@v1.2.0
               with:
-                solution-file: out/contents/contoso_university_core.zip
+                solution-file: out/contoso_university_core.zip
                 solution-folder: contents
                 solution-type: Both
             - name: Upload Build Artifact aka packed sol to artif foldr
