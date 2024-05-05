@@ -16,20 +16,30 @@ jobs:
         if: ${{ github.event.workflow_run.conclusion == 'success'}}
         environment: Prod
         steps:
-            - name: Download Artifact 
-              uses: actions/download-artifact@v4
-              with:
+#            - name: Download Artifact 
+#              uses: actions/download-artifact@v4
+#              with:
                 #workflow: deploy-solution.yml
-                github-token: ${{ secrets.GITHUB_TOKEN }} 
-                run_id: github.event.workflow_run.id                             
+#                github-token: ${{ secrets.GITHUB_TOKEN }} 
+#                run_id: github.event.workflow_run.id                             
             - name: Install Power Platform Tool
               uses: microsoft/powerplatform-actions/actions-install@v1.2.0
-           # - name: Pack Contoso_University_core
-             # uses: microsoft/powerplatform-actions/pack-solution@v1.2.0
-             # with:
-             #   solution-file: out/contoso_university_core.zip
-             #   solution-folder: contents
-              #  solution-type: Both
+            - name: Pack Contoso_University_core
+              uses: microsoft/powerplatform-actions/pack-solution@v1.2.0
+              with:
+                solution-file: out/contents/contoso_university_core.zip
+                solution-folder: contents
+                solution-type: Both
+            - name: Upload Build Artifact aka packed sol to artif foldr
+              uses: actions/upload-artifact@v2
+              with:
+                name: packedsolution
+                path: out/contents
+            - name: download soluntions from artifacts
+              uses: actions/download-artifact@v4
+              with:    
+                name: packedsolution
+                path: out/rel/
             - name: Import Contoso_university_Core
               uses: microsoft/powerplatform-actions/import-solution@v1.2.0
               with:
@@ -37,4 +47,4 @@ jobs:
                 app-id: ${{ secrets.CLIENTID }}
                 client-secret: ${{ secrets.SECRET }}
                 tenant-id: ${{ secrets.TENANTID }}
-                solution-file: out/release/contoso_university_core_managed.zip
+                solution-file: out/rel/contoso_university_core_managed.zip
