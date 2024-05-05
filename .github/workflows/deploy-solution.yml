@@ -24,7 +24,7 @@ jobs:
 #                run_id: github.event.workflow_run.id                             
             - name: Install Power Platform Tool
               uses: microsoft/powerplatform-actions/actions-install@v1.2.0
-            - name: Pack Contoso_University_core
+            - name: Pack Contoso_University_core1
               uses: microsoft/powerplatform-actions/pack-solution@v1.2.0
               with:
                 solution-file: out/contoso_university_core.zip
