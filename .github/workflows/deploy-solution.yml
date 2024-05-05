@@ -17,10 +17,10 @@ jobs:
         environment: Prod
         steps:
             - name: Download Artifact 
-              uses: actions/download-artifact@v4
+              uses: dawidd6/actions-download-artifact@v2
               with:
                 workflow: deploy-solution.yml
-                path: out/release/
+                #path: out/release/
                 #name: packed-solution                
             - name: Install Power Platform Tool
               uses: microsoft/powerplatform-actions/actions-install@v1.2.0
